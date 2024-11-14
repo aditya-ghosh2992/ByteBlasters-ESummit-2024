@@ -23,7 +23,7 @@ export default function Dashboard() {
     //optimistic UI approach
 
     const handleDeleteMessage = (messageId : string) => {
-        setMessages(messages.filter(message => message._id !== messageId))
+        setMessages(messages.filter((message) => message._id !== messageId))
     }
     const {data:session} = useSession()
     const form = useForm({
@@ -66,6 +66,7 @@ export default function Dashboard() {
             }
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>;
+            console.log(error , axiosError.response?.data.message)
            toast({
             title : "Error",
             description : axiosError.response?.data.message || "Failed to fetch messages",
@@ -79,10 +80,16 @@ export default function Dashboard() {
     },[setIsLoading , setIsSwitchLoading ])
 
     useEffect(() => {
-        if(!session || !session?.user) return;
-        fetchMessages()
-        fetchAcceptMessage()
-        },[session, setValue, fetchAcceptMessage , fetchMessages])
+        if(!session || !session?.user) {
+          toast({
+            title : "Error yahi se araha",
+            variant : "destructive"
+           });
+          return;
+        }
+        fetchMessages();
+        fetchAcceptMessage();
+        },[session, setValue,toast, fetchAcceptMessage , fetchMessages])
     
     //handle Switch change
 
@@ -93,7 +100,7 @@ export default function Dashboard() {
         toast({
             title : response.data.message,
             variant : "default"
-        })
+        });
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>;
             toast({
@@ -104,17 +111,29 @@ export default function Dashboard() {
         }
     }
 
-    const username = session?.user as User
-    const baseUrl = `${window.location.protocol}//${window.location.host}`
-    const profileUrl = `${baseUrl}/u/${username}`
+    const username = session?.user.username || ""; // Adjust to match the actual property name, e.g., session?.user?.username
+
+    // Check if username exists
+if (!username) {
+    console.warn("Username is not available");
+}
+else{
+    console.log(username);
+  }
+
+// Construct the profile URL
+const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'; 
+const profileUrl = username ? `${baseUrl}/u/${username}` : baseUrl; //
     const copyToClipboard = () => {
         navigator.clipboard.writeText(profileUrl)
+        
         toast({
             title : "Copied to clipboard",
             description : "Profile URL copied to clipboard",
             variant : "default"
         })
     }
+    
     if(!session || !session.user){
         return (
             <div>
@@ -171,7 +190,7 @@ export default function Dashboard() {
         {messages.length > 0 ? (
           messages.map((message, index) => (
             <MessageCard
-              key={message._id as string}
+              key={message._id as string || index}
               message={message}
               onMessageDelete={handleDeleteMessage}
             />

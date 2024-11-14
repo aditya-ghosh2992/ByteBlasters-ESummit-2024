@@ -7,23 +7,24 @@ import mongoose from "mongoose";
 export async function GET(request: Request){
     await dbConnect();
     const session = await getServerSession(AuthOptions)
-    const user : User  = session?.user as User;
+    
     if(!session || !session.user){
         return Response.json({
             success : false,
             message : "Not Authenticated"
         },{status: 401})    
     } 
+    const user : User  = session?.user as User;
     // consr userId = user._id; It will surely throw an error as it is a string and not a mongoose object
     const userId = new mongoose.Types.ObjectId(user._id);
     try {
         const user = await UserModel.aggregate([
              {$match : {_id: userId}},
-             {$unwind : "$messages"},
+             {$unwind :  { path: "$messages", preserveNullAndEmptyArrays: true }},
              {$sort : {"messages.createdAt" : -1}},
              {$group:{_id : "$_id", messages : {$push : "$messages"}}},   
-        ])
-        if(!user || user.length === 0){
+        ]).exec();
+        if(!user || user.length == 0){
             return Response.json({
                 success : false,
                 message : "User not found"

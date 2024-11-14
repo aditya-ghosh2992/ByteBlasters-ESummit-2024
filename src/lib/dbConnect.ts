@@ -8,7 +8,7 @@ const connection : ConnectionObject = {};
 
 async function dbConnect(): Promise<void> {
     if (connection.isConnected) {
-        console.log("Already connected to MongoDB, Don't spam, i am not your girlfriend");
+        console.log("Already connected to MongoDB");
         return;
     }
     try {
