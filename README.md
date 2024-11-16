@@ -17,7 +17,7 @@ The website also has to documentation,Github Repositories link with the depolyed
 - Datasets: 
 
 
-## Introduction
+## 📢Introduction
 
 - #### **Problem Statemen**: Learners often struggle with information overload and difficulty in locating precise, quality learning materials suited to their needs. 
 
@@ -105,7 +105,7 @@ cd Nexus-Chapter-Website
 ├── tsconfig.json       # TypeScript configuration
 └── tailwind.config.js  # Tailwind CSS configuration
 ```
-## Tech Stack
+## 🚀Tech Stack
 
 **Client:** 
 - **Next.js**: React-based framework using the App Router for a modular structure.
@@ -125,7 +125,7 @@ cd Nexus-Chapter-Website
 
 **Server:** Node, Express
 
-## Resources 
+## 📚 Resources 
 
 ### GitHub Public Repository Link: 
 ```bash
