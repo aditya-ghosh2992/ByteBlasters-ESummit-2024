@@ -4,7 +4,7 @@ const HeroSection = () => {
     return (
         <div className="relative bg-gray-900 text-white">
             <div className="container mx-auto flex flex-col lg:flex-row items-center py-16 px-6">
-                {/* Left Section */}
+                {/* Left wala side */}
                 <div className="lg:w-1/2 text-center lg:text-left">
                     <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
                         Facing Diffculites in finding the<span className="text-orange-500">correct courses?</span>
@@ -22,17 +22,17 @@ const HeroSection = () => {
                     </div>
                 </div>
 
-                {/* Right Section */}
+                {/*Right wala part*/}
                 <div className="lg:w-1/2 mt-12 lg:mt-0">
                     <img
-                        src=""     //source for photo
+                        src=""     //source for photo to be put later like morning idk
                         alt=""
                         className="w-full max-w-lg mx-auto"
                     />
                 </div>
             </div>
 
-            {/* Features Section */}
+            {/* Features wala middle wala part  */}
             <div className="bg-gray-800 py-10">
                 <div className="container mx-auto flex flex-wrap justify-between items-center text-center">
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
