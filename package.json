@@ -1,6 +1,6 @@
 {
-  "name": "byteblasters-esummit-2024",
-  "version": "0.1.0",
+  "name": "your-project-name",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@react-spring/web": "^9.7.5",
@@ -8,6 +8,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap-icons": "^1.11.3",
+    "eslint-config-next": "^15.0.3",
+    "next": "^13.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",

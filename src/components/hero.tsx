@@ -40,36 +40,21 @@ const HeroSection = () => {
             <div className="bg-gray-800 py-10">
                 <div className="container mx-auto flex flex-wrap justify-between items-center text-center">
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
-                        <img 
-                            src={image1} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
+                        <img src="" alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Private</h3>
                         <p className="text-gray-400 mt-2">
                             Your Records are stored with Privacy
                         </p>
                     </div>
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
-                    <img 
-                            src={image2} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
+                    <img src="" alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Easy</h3>
                         <p className="text-gray-400 mt-2">
                             Always available, one click away.
                         </p>
                     </div>
                     <div className="w-full md:w-1/3">
-                    <img 
-                            src={image3} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
+                    <img src="" alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Customizable</h3>
                         <p className="text-gray-400 mt-2">
                             Create & share your prompts. Open source as examples!

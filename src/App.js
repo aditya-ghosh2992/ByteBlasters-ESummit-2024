@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <HeroSection />
       <ComparisonSection/>
-      <FooterSection/>
+      
     </div>
   );
 }
