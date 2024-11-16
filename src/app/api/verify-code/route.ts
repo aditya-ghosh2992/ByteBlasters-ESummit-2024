@@ -8,6 +8,7 @@ export async function POST(req: Request) {
         const {username, VerificationCode} =await req.json();
         const decodedUsername = decodeURIComponent(username); // the actual data is fetched, the spaces are reduced to 20%
         const user = await UserModel.findOne({username : decodedUsername})
+        console.log(user);
         if(!user){
             console.log("User not found");
             return Response.json({
@@ -40,7 +41,7 @@ export async function POST(req: Request) {
             return Response.json({
                 success : false,
                 message : "Invalid verification code"
-            },{status : 400})
+            },{status : 403})
         }
     }
     catch(error){

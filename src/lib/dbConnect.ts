@@ -12,7 +12,7 @@ async function dbConnect(): Promise<void> {
         return;
     }
     try {
-        const db = await mongoose.connect(process.env.MONGODB_URI??"mongodb+srv://<new-user-1>:<miK9s7WMajVM2Kq>@cluster0.xa9lr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+        const db = await mongoose.connect(process.env.MONGODB_URI ?? "");
         //connection.isConnected = db.connections[0].readyState; // not a neccessary step as it is just to show that yes it is connected, probably wont even be needed as such, but yes it is a good practice, like you are carrying a biscuit from the packet to prove you have the packet of biscuits! 
         connection.isConnected = db.connections[0].host;
         console.log(`MongoDB connected on host : ${ connection.isConnected}`);

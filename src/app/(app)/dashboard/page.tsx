@@ -1,200 +1,69 @@
-"use client"
-import { useToast } from "@/hooks/use-toast";
-import { Message, User } from "@/model/user";
-import { acceptMsgSchema } from "@/schemas/acceptMsgSchema";
-import { useSession } from "next-auth/react";
-import React, { useCallback, useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import axios from "axios";
-import { AxiosError } from "axios";
-import { ApiResponse } from "@/types/ApiResponse";
-import { Button } from "@/components/ui/button";
-import { Loader2, RefreshCcw } from "lucide-react";
-import{ MessageCard} from "@/components/messageCard";
-import { Separator } from "@/components/ui/separator";
-import { Switch } from "@/components/ui/switch";
-import dbConnect from "@/lib/dbConnect";
+"use client";
 
-export default function Dashboard() {
-    const [messages , setMessages] = useState<Message[]>([])
-    const [isLoading , setIsLoading] = useState<boolean>(false) // messages fetching
-    const [isSwitchLoading , setIsSwitchLoading] = useState<boolean>(false) // state changing of the button
-    const {toast} = useToast()
-    
-    //optimistic UI approach
+import React from "react";
 
-    const handleDeleteMessage = (messageId : string) => {
-        setMessages(messages.filter((message) => message._id !== messageId))
-    }
-    const {data:session} = useSession()
-    const form = useForm({
-        resolver: zodResolver(acceptMsgSchema),
-    })
+const Home: React.FC = () => {
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white py-20 text-center">
+        <h1 className="text-4xl md:text-6xl font-extrabold">
+          Welcome to MyApp
+        </h1>
+        <p className="mt-4 text-lg md:text-xl">
+          Simplifying your workflow with modern solutions.
+        </p>
+        <button className="mt-6 px-6 py-3 bg-white text-indigo-500 font-semibold rounded-lg shadow hover:bg-gray-200 transition">
+          Get Started
+        </button>
+      </header>
 
-    const {register , watch , setValue} = form;
-    const acceptMessages = watch("acceptMessages")
-    
-    const fetchAcceptMessage = useCallback(async() => {
-        setIsSwitchLoading(true)
-        try {
-           const response = await axios.get<ApiResponse>('/api/accepting-messages')
-           setValue("acceptMessages" , response.data.isAcceptMessage)
-
-        } catch (error) {
-           const axiosError = error as AxiosError<ApiResponse>;
-           toast({
-            title : "Error",
-            description : axiosError.response?.data.message || "Failed to fetch messages",
-            variant : "destructive"
-           })
-        }
-        finally{
-            setIsSwitchLoading(false)
-        }
-    }, [setValue])
-
-    const fetchMessages = useCallback(async( refresh: boolean = false) => {
-        setIsLoading(true)
-        setIsSwitchLoading(false)
-        try {
-            const response = await axios.get<ApiResponse>('/api/get-messages')
-            setMessages(response.data.messages || [])
-            if(refresh){
-                toast({
-                    title : "Refershed messages",
-                    description : "Showing latest messages",
-                })
-            }
-        } catch (error) {
-            const axiosError = error as AxiosError<ApiResponse>;
-            
-           toast({
-            title : "Error",
-            description : axiosError.response?.data.message || "Failed to fetch messages",
-            variant : "destructive"
-           })
-        }
-        finally{
-            setIsSwitchLoading(false)
-            setIsLoading(false)
-        }
-    },[setIsLoading , setIsSwitchLoading ])
-
-    useEffect(() => {
-        if(!session || !session?.user) {
-          toast({
-            title : "Error yahi se araha",
-            variant : "destructive"
-           });
-          return;
-        }
-        fetchMessages();
-        fetchAcceptMessage();
-        },[session, setValue,toast, fetchAcceptMessage , fetchMessages])
-    
-    //handle Switch change
-
-    const handleSwitchChange = async() => {
-        try {
-        const response = await axios.post<ApiResponse>(`/api/accepting-messages` , {isAcceptMessage : !acceptMessages})
-        setValue("acceptMessages" , !acceptMessages)
-        toast({
-            title : response.data.message,
-            variant : "default"
-        });
-        } catch (error) {
-            const axiosError = error as AxiosError<ApiResponse>;
-            toast({
-             title : "Error",
-             description : axiosError.response?.data.message || "Failed to fetch messages",
-             variant : "destructive"
-            })
-        }
-    }
-
-    const username = session?.user.username || ""; // Adjust to match the actual property name, e.g., session?.user?.username
-    // Check if username exists
-// Construct the profile URL
-const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'; 
-const profileUrl = username ? `${baseUrl}/u/${username}` : baseUrl; //
-console.log(messages);
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(profileUrl)
-        
-        toast({
-            title : "Copied to clipboard",
-            description : "Profile URL copied to clipboard",
-            variant : "default"
-        })
-    }
-    
-    if(!session || !session.user){
-        return (
-            <div>
-                <h1>Please sign in</h1>
-            </div>
-        )
-    }
-    return(
-       <>
-        <div className="my-8 mx-4 md:mx-8 lg:mx-auto p-6 bg-white rounded w-full max-w-6xl">
-      <h1 className="text-4xl font-bold mb-4">User Dashboard</h1>
-
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold mb-2">Copy Your Unique Link</h2>{' '}
-        <div className="flex items-center">
-          <input
-            type="text"
-            value={profileUrl}
-            disabled
-            className="input input-bordered w-full p-2 mr-2"
-          />
-          <Button onClick={copyToClipboard}>Copy</Button>
+      {/* Features Section */}
+      <main className="flex-1 p-8">
+        <h2 className="text-3xl font-bold text-center mb-12">Our Features</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold mb-2">Feature One</h3>
+            <p className="text-gray-600">
+              Brief description of what this feature offers.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold mb-2">Feature Two</h3>
+            <p className="text-gray-600">
+              Highlight why this feature is awesome.
+            </p>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-bold mb-2">Feature Three</h3>
+            <p className="text-gray-600">
+              Explain the benefits of using this feature.
+            </p>
+          </div>
         </div>
-      </div>
+      </main>
 
-      <div className="mb-4">
-        <Switch
-          {...register('acceptMessages')}
-          checked={acceptMessages}
-          onCheckedChange={handleSwitchChange}
-          disabled={isSwitchLoading}
-        />
-        <span className="ml-2">
-          Accept Messages: {acceptMessages ? 'On' : 'Off'}
-        </span>
-      </div>
-      <Separator />
-
-      <Button
-        className="mt-4"
-        variant="outline"
-        onClick={(e) => {
-          e.preventDefault();
-          fetchMessages(true);
-        }}
-      >
-        {isLoading ? (
-          <Loader2 className="h-4 w-4 animate-spin" />
-        ) : (
-          <RefreshCcw className="h-4 w-4" />
-        )}
-      </Button>
-      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
-        {messages.length > 0 ? (
-          messages.map((message) => (
-            <MessageCard
-              key={message._id as string }
-              message={message}
-              onMessageDelete={handleDeleteMessage}
-            />
-          ))
-        ) : (
-          <p>No messages to display.</p>
-        )}
-      </div>
+      {/* Footer Section */}
+      <footer className="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2024 MyApp. All rights reserved.</p>
+        <p className="mt-2">
+          <a
+            href="#privacy"
+            className="text-indigo-400 hover:underline transition"
+          >
+            Privacy Policy
+          </a>{" "}
+          |{" "}
+          <a
+            href="#terms"
+            className="text-indigo-400 hover:underline transition"
+          >
+            Terms of Service
+          </a>
+        </p>
+      </footer>
     </div>
-       </>
-    )
-}
+  );
+};
+
+export default Home;
