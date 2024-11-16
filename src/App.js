@@ -1,17 +1,15 @@
-
+import React from 'react';
 import './App.css';
 import Navbar from './components/navbar/navbar';
+import HeroSection from './components/hero/HeroSection';
+
 
 function App() {
   return (
-    <>
-    <Navbar/>
-    <div className="App">
-      <h1 className="text-3xl font-bold underline text-red-500">
-      Hello world!
-    </h1>
+    <div>
+      <Navbar />
+      <HeroSection />
     </div>
-    </>
   );
 }
 
