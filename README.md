@@ -18,11 +18,3 @@ Details about subsection 1.1.
 1. **Item 1**: Explanation of item 1.
 2. **Item 2**: Explanation of item 2.
 
-## Conclusion
-
-Summarize the key points or provide a closing statement.
-
----
-
-*For more information, contact [Your Name](mailto:your.email@example.com).*
-
