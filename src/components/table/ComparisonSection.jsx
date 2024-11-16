@@ -18,17 +18,17 @@ const ComparisonSection = () => {
                         </thead>
                         <tbody>
                             <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Doesn't train on your data</td>
+                                <td className="p-4 border border-gray-700">Does not train on your data</td>
                                 <td className="p-4 border border-gray-700 text-center">✅</td>
                                 <td className="p-4 border border-gray-700 text-center">❌</td>
                             </tr>
                             <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Understands anything you're looking at</td>
+                                <td className="p-4 border border-gray-700">Understands anything you are looking at</td>
                                 <td className="p-4 border border-gray-700 text-center">✅</td>
                                 <td className="p-4 border border-gray-700 text-center">❌</td>
                             </tr>
                             <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Understands anything you've said or heard</td>
+                                <td className="p-4 border border-gray-700">Understands anything you have said or heard</td>
                                 <td className="p-4 border border-gray-700 text-center">✅</td>
                                 <td className="p-4 border border-gray-700 text-center">❌</td>
                             </tr>
