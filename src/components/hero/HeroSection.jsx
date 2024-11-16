@@ -1,4 +1,8 @@
 import React from "react";
+import image1 from "../assets/Lockkkk.png";
+import image2 from "../assets/Controllerrrrr.png";
+import image3 from "../assets/Terminallll.png";
+
 
 const HeroSection = () => {
     return (
@@ -7,7 +11,7 @@ const HeroSection = () => {
                 {/* Left wala side */}
                 <div className="lg:w-1/2 text-center lg:text-left">
                     <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                        Facing Diffculites in finding the<span className="text-orange-500">correct courses?</span>
+                        Facing Diffculites in finding the<span className="text-orange-500"> correct courses?</span>
                     </h1>
                     <p className="text-gray-300 mt-4 text-lg">
                         Get instant answers about anything you’ve seen or heard. Completely private and personalized to you.
@@ -36,18 +40,21 @@ const HeroSection = () => {
             <div className="bg-gray-800 py-10">
                 <div className="container mx-auto flex flex-wrap justify-between items-center text-center">
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                        <img src={image1} alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Private</h3>
                         <p className="text-gray-400 mt-2">
                             Your Records are stored with Privacy
                         </p>
                     </div>
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
+                    <img src={image2} alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Easy</h3>
                         <p className="text-gray-400 mt-2">
                             Always available, one click away.
                         </p>
                     </div>
                     <div className="w-full md:w-1/3">
+                    <img src={image3} alt="Lock Icon" className="mx-auto mb-2" style={{ width: '150px', height: '150px' }} />
                         <h3 className="text-2xl font-bold">Customizable</h3>
                         <p className="text-gray-400 mt-2">
                             Create & share your prompts. Open source as examples!
