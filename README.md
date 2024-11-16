@@ -18,3 +18,4 @@ Details about subsection 1.1.
 1. **Item 1**: Explanation of item 1.
 2. **Item 2**: Explanation of item 2.
 
+Trail Merge by Ankan
