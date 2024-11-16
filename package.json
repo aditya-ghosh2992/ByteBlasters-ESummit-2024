@@ -1,59 +1,46 @@
 {
-  "name": "mystrymsg",
-  "version": "0.1.0",
+  "name": "your-project-name",
+  "version": "1.0.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
   "dependencies": {
-    "@ai-sdk/openai": "^0.0.71",
-    "@hookform/resolvers": "^3.9.1",
-    "@radix-ui/react-alert-dialog": "^1.1.2",
-    "@radix-ui/react-label": "^2.1.0",
-    "@radix-ui/react-separator": "^1.1.0",
-    "@radix-ui/react-slot": "^1.1.0",
-    "@radix-ui/react-switch": "^1.1.1",
-    "@radix-ui/react-toast": "^1.2.2",
-    "@react-email/components": "^0.0.25",
-    "ai": "^3.4.33",
-    "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
-    "bcryptjs": "^2.4.3",
-    "chart.js": "^4.4.6",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "dayjs": "^1.11.13",
-    "dotenv": "^16.4.5",
-    "embla-carousel-autoplay": "^8.3.1",
-    "embla-carousel-react": "^8.3.1",
-    "lucide-react": "^0.454.0",
-    "mongoose": "^8.7.2",
-    "next": "14.2.15",
-    "next-auth": "^4.24.8",
-    "openai": "^4.70.3",
-    "react": "^18",
-    "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18",
-    "react-hook-form": "^7.53.1",
-    "resend": "^4.0.0",
-    "tailwind-merge": "^2.5.4",
-    "tailwindcss-animate": "^1.0.7",
-    "usehooks-ts": "^3.1.0",
-    "zod": "^3.23.8"
+    "@react-spring/web": "^9.7.5",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "bootstrap-icons": "^1.11.3",
+    "eslint-config-next": "^15.0.3",
+    "next": "^13.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "@types/bcryptjs": "^2.4.6",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.15",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "tailwindcss": "^3.4.15"
   }
 }
