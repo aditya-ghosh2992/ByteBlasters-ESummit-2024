@@ -38,7 +38,7 @@ const HeroSection = () => {
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
                         <h3 className="text-2xl font-bold">Private</h3>
                         <p className="text-gray-400 mt-2">
-                            Your recorded data stays on your device until you attach it.
+                            Your Records are stored with Privacy
                         </p>
                     </div>
                     <div className="w-full md:w-1/3 mb-6 md:mb-0">
