@@ -11,15 +11,17 @@ import { AxiosError } from "axios";
 import { ApiResponse } from "@/types/ApiResponse";
 import { Button } from "@/components/ui/button";
 import { Loader2, RefreshCcw } from "lucide-react";
-import MessageCard from "@/components/messageCard";
+import{ MessageCard} from "@/components/messageCard";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
+import dbConnect from "@/lib/dbConnect";
 
 export default function Dashboard() {
     const [messages , setMessages] = useState<Message[]>([])
     const [isLoading , setIsLoading] = useState<boolean>(false) // messages fetching
     const [isSwitchLoading , setIsSwitchLoading] = useState<boolean>(false) // state changing of the button
     const {toast} = useToast()
+    
     //optimistic UI approach
 
     const handleDeleteMessage = (messageId : string) => {
@@ -66,7 +68,7 @@ export default function Dashboard() {
             }
         } catch (error) {
             const axiosError = error as AxiosError<ApiResponse>;
-            console.log(error , axiosError.response?.data.message)
+            
            toast({
             title : "Error",
             description : axiosError.response?.data.message || "Failed to fetch messages",
@@ -112,18 +114,11 @@ export default function Dashboard() {
     }
 
     const username = session?.user.username || ""; // Adjust to match the actual property name, e.g., session?.user?.username
-
     // Check if username exists
-if (!username) {
-    console.warn("Username is not available");
-}
-else{
-    console.log(username);
-  }
-
 // Construct the profile URL
 const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'; 
 const profileUrl = username ? `${baseUrl}/u/${username}` : baseUrl; //
+console.log(messages);
     const copyToClipboard = () => {
         navigator.clipboard.writeText(profileUrl)
         
@@ -188,9 +183,9 @@ const profileUrl = username ? `${baseUrl}/u/${username}` : baseUrl; //
       </Button>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
         {messages.length > 0 ? (
-          messages.map((message, index) => (
+          messages.map((message) => (
             <MessageCard
-              key={message._id as string || index}
+              key={message._id as string }
               message={message}
               onMessageDelete={handleDeleteMessage}
             />
