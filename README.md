@@ -30,32 +30,6 @@ The website also has to documentation,Github Repositories link with the depolyed
    - Continuous improvement using machine learning to adapt to user preferences over time.  
 4. **Impact**: This project is designed to save time, improve learning efficiency, and provide a seamless experience for students, professionals, and lifelong learners.  
 5. **Scalability**: The platform can accommodate diverse subjects, integrate with various learning platforms, and support multi-language content to cater to a global audience.  
-## API Reference
-
-#### Get all items
-
-```http
-  GET /api/items
-```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | **Required**. Your API key |
-
-#### Get item
-
-```http
-  GET /api/items/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
-
-#### add(num1, num2)
-
-Takes two numbers and returns the sum.
-
 
 ## Installation
 ## 🛠️ Installation and Setup
