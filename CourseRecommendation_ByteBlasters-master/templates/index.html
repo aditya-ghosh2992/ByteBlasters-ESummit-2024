@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Course Recommendation | Home</title>
+</head>
+
+<body>
+
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a href="https://byteblasterhack2skill.vercel.app/#home" class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class="ml-3 text-xl">Neural
+                    Learn</span>
+            </a>
+            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+                <a href="/" class="mr-5 hover:text-gray-900"><b>Home</b></a>
+                <a href="/dashboard" class="mr-5 hover:text-gray-900"></a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container mx-auto flex flex-wrap items-center">
+            <div class="text-content lg:w-1/2 w-full text-center lg:text-left">
+                <h1 class="text-5xl font-bold mb-6 text-gray-900 leading-snug">
+                    Machine Learning Project <br> Udemy Course Recommendation System
+                </h1>
+                <p class="text-lg text-gray-600 mb-8">
+                    We will analyze flight fare prediction using a machine learning dataset by applying key exploratory data analysis techniques. Based on features such as airline type, arrival time, departure time, flight duration, source, and destination, we will generate predictions about flight prices.
+                </p>
+            </div>
+            <div class="image-content lg:w-1/2 w-full text-center">
+                <img class="rounded-lg shadow-lg max-w-full mx-auto" alt="Machine Learning" src="{{ url_for('static', filename='img/bg7.jpg') }}">
+            </div>
+        </div>
+    </section>
+
+    <section class="welcome-section bg-dark text-white py-10 text-center">
+        <div class="container">
+            <h2 class="text-4xl font-semibold mb-4">Welcome to Course Recommendations</h2>
+            <p class="text-lg mb-6">Discover the best courses tailored for you.</p>
+            <form action="/" method="POST" class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <input type="text" name="course" placeholder="Enter course name" class="form-control w-full md:w-1/2 rounded-md px-4 py-2">
+                <button type="submit" class="btn btn-primary w-full md:w-auto px-6 py-2 rounded-md">Recommend</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <h2 class="text-center mb-4"><b>Recommended Courses</b></h2>
+        <div class="row">
+            {% for course in coursemap %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body bg-light">
+                        <h5 class="card-title">{{ course }}</h5>
+                        <a href="{{ coursemap[course] }}" target="_blank" class="btn btn-primary">View Course</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <span class="ml-3 text-xl"></span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
