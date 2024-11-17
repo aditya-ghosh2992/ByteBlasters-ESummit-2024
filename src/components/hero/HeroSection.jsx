@@ -2,78 +2,122 @@ import React from "react";
 import image1 from "../assets/Lockkkk.png";
 import image2 from "../assets/Controllerrrrr.png";
 import image3 from "../assets/Terminallll.png";
-
+import image4 from "../assets/Main.png";
 
 const HeroSection = () => {
     return (
-        <div className="relative bg-gray-900 text-white">
-            <div className="container mx-auto flex flex-col lg:flex-row items-center py-16 px-6">
-                {/* Left wala side */}
+        <div className="relative bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
+            {/* Hero Section */}
+            <div
+                className="container mx-auto flex flex-col lg:flex-row items-center py-40 px-8"
+                style={{ minHeight: "100vh" }}
+            >
+                {/* Left Side */}
                 <div className="lg:w-1/2 text-center lg:text-left">
-                    <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
-                        Facing Diffculites in finding the<span className="text-orange-500"> correct courses?</span>
+                    <h1 className="text-5xl lg:text-8xl font-extrabold leading-tight">
+                        Facing <span className="text-orange-500 animate-pulse">Difficulties</span> in Finding the 
+                        <span className="text-blue-400"> Right Courses?</span>
                     </h1>
-                    <p className="text-gray-300 mt-4 text-lg">
-                        Get instant answers about anything you’ve seen or heard. Completely private and personalized to you.
+                    <p className="text-gray-300 mt-8 text-xl lg:text-2xl leading-relaxed">
+                        NeuralLearn helps you find <span className="text-blue-400 font-semibold">personalized</span>, 
+                        <span className="text-orange-500 font-semibold"> private</span>, and 
+                        <span className="text-green-400 font-semibold"> effective</span> courses instantly. Your learning journey, tailored to perfection.
                     </p>
-                    <div className="mt-6 flex flex-col sm:flex-row justify-center lg:justify-start">
-                        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 transform hover:scale-105 mb-4 sm:mb-0 sm:mr-4">
+                    <div className="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                        <button
+                            onClick={() => (window.location.href = "http://127.0.0.1:5001/")}
+                            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-110 hover:shadow-2xl hover:translate-y-[-3px]"
+                        >
                             Try NeuralLearn
                         </button>
-                        <button className="bg-teal-500 hover:bg-teal-600 text-white font-bold py-3 px-6 rounded-full shadow-md transition duration-300 transform hover:scale-105">
-                         Open Souce Code and Github
+                        <button
+                            onClick={() => (window.location.href = "https://github.com/AnkanMisra/CourseRecommendation_ByteBlasters")}
+                            className="bg-gradient-to-r from-teal-400 to-green-400 hover:from-green-400 hover:to-teal-400 text-white font-bold py-4 px-10 rounded-full shadow-lg transition duration-300 transform hover:scale-110 hover:shadow-2xl hover:translate-y-[-3px]"
+                        >
+                            Open Source on GitHub
                         </button>
                     </div>
                 </div>
 
-                {/*Right wala part*/}
+                {/* Right Side */}
                 <div className="lg:w-1/2 mt-12 lg:mt-0">
-                    <img
-                        src=""     //source for photo to be put later like morning idk
-                        alt=""
-                        className="w-full max-w-lg mx-auto"
-                    />
+                    <div className="relative group">
+                        <img
+                            src={image4} // Replace with actual image URL
+                            alt="AI Illustration"
+                            className="rounded-3xl shadow-2xl max-w-full mx-auto transform transition-all duration-700 group-hover:scale-105 group-hover:translate-y-[-5px] group-hover:shadow-[0px_20px_50px_rgba(0,0,0,0.4)]"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black opacity-0 group-hover:opacity-30 rounded-3xl transition-opacity duration-700"></div>
+                        <div className="absolute bottom-6 left-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                            <p className="text-xl font-semibold text-white">AI-Powered Course Finder</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            {/* Features wala middle wala part  */}
-            <div className="bg-gray-800 py-10">
-                <div className="container mx-auto flex flex-wrap justify-between items-center text-center">
-                    <div className="w-full md:w-1/3 mb-6 md:mb-0">
-                        <img 
-                            src={image1} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
-                        <h3 className="text-2xl font-bold">Private</h3>
-                        <p className="text-gray-400 mt-2">
-                            Your Records are stored with Privacy
-                        </p>
+            {/* Features Section */}
+            <div className="bg-gradient-to-b from-gray-800 to-gray-900 py-20">
+                <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                    {/* Feature 1 */}
+                    <div
+                        className="p-8 bg-gray-800 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-110 hover:shadow-2xl relative group"
+                        data-aos="fade-up"
+                    >
+                        {/* Shining Border */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative z-10">
+                            <img
+                                src={image1}
+                                alt="Private Icon"
+                                className="w-28 h-28 mx-auto mb-6"
+                            />
+                            <h3 className="text-3xl font-bold text-white">Private</h3>
+                            <p className="text-gray-400 mt-4">
+                                Your data is secure, private, and only accessible to you.
+                            </p>
+                        </div>
                     </div>
-                    <div className="w-full md:w-1/3 mb-6 md:mb-0">
-                    <img 
-                            src={image2} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
-                        <h3 className="text-2xl font-bold">Easy</h3>
-                        <p className="text-gray-400 mt-2">
-                            Always available, one click away.
-                        </p>
+
+                    {/* Feature 2 */}
+                    <div
+                        className="p-8 bg-gray-800 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-110 hover:shadow-2xl relative group"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        {/* Shining Border */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-teal-400 via-green-400 to-teal-400 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative z-10">
+                            <img
+                                src={image2}
+                                alt="Easy Icon"
+                                className="w-28 h-28 mx-auto mb-6"
+                            />
+                            <h3 className="text-3xl font-bold text-white">Easy</h3>
+                            <p className="text-gray-400 mt-4">
+                                Simple and intuitive. Just one click away.
+                            </p>
+                        </div>
                     </div>
-                    <div className="w-full md:w-1/3">
-                    <img 
-                            src={image3} 
-                            alt="Lock Icon" 
-                            className="mx-auto mb-2 transform transition duration-300 hover:scale-110" 
-                            style={{ width: '150px', height: '150px' }} 
-                        />
-                        <h3 className="text-2xl font-bold">Customizable</h3>
-                        <p className="text-gray-400 mt-2">
-                            Create & share your prompts. Open source as examples!
-                        </p>
+
+                    {/* Feature 3 */}
+                    <div
+                        className="p-8 bg-gray-800 rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-110 hover:shadow-2xl relative group"
+                        data-aos="fade-up"
+                        data-aos-delay="400"
+                    >
+                        {/* Shining Border */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500 via-yellow-500 to-orange-500 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                        <div className="relative z-10">
+                            <img
+                                src={image3}
+                                alt="Customizable Icon"
+                                className="w-28 h-28 mx-auto mb-6"
+                            />
+                            <h3 className="text-3xl font-bold text-white">Customizable</h3>
+                            <p className="text-gray-400 mt-4">
+                                Fully adaptable. Create and share your own prompts.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

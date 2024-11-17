@@ -10,9 +10,8 @@ function App() {
   return (
     <div>
       <Navbar />
-      <HeroSection />
       <ComparisonSection/>
-      
+      <FooterSection/>
     </div>
   );
 }

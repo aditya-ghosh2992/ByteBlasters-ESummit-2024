@@ -1,87 +1,91 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 const FooterSection = () => {
+    const texts = [
+        "stuff faster.",
+        "the best courses.",
+        "things you need.",
+        "your learning path."
+    ];
+
+    const [currentText, setCurrentText] = useState("");
+    const [index, setIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [speed, setSpeed] = useState(100); // Default typing speed
+
+    useEffect(() => {
+        const handleTyping = () => {
+            const fullText = texts[index];
+
+            if (!isDeleting) {
+                // Typing phase
+                setCurrentText((prev) => fullText.substring(0, prev.length + 1));
+                setSpeed(100); // Typing speed
+                if (currentText === fullText) {
+                    // Pause when fully typed
+                    setIsDeleting(true);
+                    setSpeed(1500); // Pause before erasing
+                }
+            } else {
+                // Erasing phase
+                setCurrentText((prev) => fullText.substring(0, prev.length - 1));
+                setSpeed(50); // Faster erasing speed
+                if (currentText === "") {
+                    setIsDeleting(false);
+                    setIndex((prev) => (prev + 1) % texts.length); // Move to next text
+                }
+            }
+        };
+
+        const timeout = setTimeout(handleTyping, speed);
+
+        return () => clearTimeout(timeout); // Cleanup timeout
+    }, [currentText, isDeleting, index, speed, texts]);
+
     return (
         <div className="bg-gray-900 text-white">
             {/* Call-to-action Section */}
-            <div className="text-center py-16">
-                <h1 className="text-4xl font-bold">
-                    Start Finding <span className="text-gray-300 italic">stuff faster.</span>
+            <div className="text-center py-20 px-6">
+                <h1 className="text-6xl font-extrabold leading-tight">
+                    Start Finding{" "}
+                    <span className="text-blue-400 italic">
+                        {currentText}
+                    </span>
+                    <span className="text-blue-400 animate-blink">|</span>
                 </h1>
-                <div className="mt-6">
-                    <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
-                        <span className="flex items-center justify-center">
-                            <i className="fab fa-apple mr-2"></i> Download
-                        </span>
+                <p className="text-gray-300 mt-6 text-lg">
+                    Your personalized course search assistant, powered by AI.
+                </p>
+                <div className="mt-10">
+                    <button
+                        onClick={() => window.open("http://127.0.0.1:5001/", "_blank")}
+                        className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-purple-600 hover:to-blue-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transition-transform transform hover:scale-110"
+                    >
+                        Use it Now!
                     </button>
                 </div>
             </div>
 
-            {/* Footer Wala Part */}
-            <div className="bg-gray-800 py-8">
-                <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start text-sm">
-                    {/* Left Sideee */}
-                    <div className="mb-6 lg:mb-0 lg:w-1/4">
-                        <h3 className="font-bold text-lg mb-2">NeuraLearn</h3>
-                        <p className="text-gray-400">
-                            An AI Model to Identify Courses Quickly and Efficiently
-                        </p>
-                        <div className="mt-4">
-                            <span className="flex items-center space-x-2 text-green-400">
-                                <span className="h-2 w-2 bg-green-500 rounded-full"></span>
-                                <span>All systems online</span>
-                                <i className="fas fa-gamepad"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* Middle Wala Thingy */}
-                    <div className="flex flex-col lg:flex-row lg:space-x-10 lg:w-3/4">
-                        {/*Some Links to accoomae */}
-                        <div className="mb-6 lg:mb-0">
-                            <h4 className="font-bold mb-2">Useful Links</h4>
-                            <ul className="space-y-1 text-gray-400">
-                                <li><a href="#" className="hover:text-white">Discord Server</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Resource */}
-                        <div className="mb-6 lg:mb-0">
-                            <h4 className="font-bold mb-2">Resources</h4>
-                            <ul className="space-y-1 text-gray-400">
-                                <li><a href="#" className="hover:text-white">Support</a></li>
-                                <li><a href="#" className="hover:text-white">Contact</a></li>
-                                <li><a href="#" className="hover:text-white">Developer Docs</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Legal Information */}
-                        <div className="mb-6 lg:mb-0">
-                            <h4 className="font-bold mb-2">Legal Information</h4>
-                            <ul className="space-y-1 text-gray-400">
-                                <li><a href="#" className="hover:text-white">Terms & Service</a></li>
-                                <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-
-                        {/* Prompt Library */}
-                        <div className="mb-6 lg:mb-0">
-                            <h4 className="font-bold mb-2">Prompt Library</h4>
-                            <ul className="space-y-1 text-gray-400">
-                                <li><a href="#" className="hover:text-white">Discover Prompts for Highlight AI</a></li>
-                                <li><a href="#" className="hover:text-white">Writing Prompts</a></li>
-                                <li><a href="#" className="hover:text-white">Essay Prompts</a></li>
-                                <li><a href="#" className="hover:text-white">Business Prompts</a></li>
-                            </ul>
-                        </div>
+            {/* Footer Section */}
+            <div className="bg-gradient-to-r from-gray-800 to-gray-700 py-16">
+                <div className="flex justify-center items-center flex-col text-center">
+                    <h3 className="text-2xl font-bold mb-2">NeuralLearn</h3>
+                    <p className="text-gray-300 text-lg">
+                        An AI Model to Identify Courses Quickly and Efficiently
+                    </p>
+                    <div className="mt-6">
+                        <span className="flex items-center justify-center space-x-2 text-green-400">
+                            <span className="h-3 w-3 bg-green-500 rounded-full animate-pulse"></span>
+                            <span className="text-gray-300">All systems online</span>
+                        </span>
                     </div>
                 </div>
             </div>
 
             {/* Bottom Footer */}
-            <div className="bg-gray-900 py-4">
-                <div className="container mx-auto text-center text-gray-500 text-xs">
-                    © 2024 Highlight AI. All rights reserved. Not associated with or endorsed by ChatGPT, Perplexity, or Claude.
+            <div className="bg-gray-900 py-6">
+                <div className="container mx-auto text-center text-gray-500 text-sm">
+                    © 2024 NeuralLearn. All rights reserved by Team ByteBlasters.
                 </div>
             </div>
         </div>
