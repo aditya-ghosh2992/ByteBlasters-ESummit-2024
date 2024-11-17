@@ -2,56 +2,98 @@ import React from "react";
 
 const ComparisonSection = () => {
     return (
-        <div className="bg-gray-900 text-white py-16">
-            <div className="container mx-auto">
-                <h2 className="text-3xl font-bold text-center mb-10">
-                    How does it compare to Other Solutions?
+        <div
+            id="comparison-section"
+            className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white py-20"
+        >
+            <div
+                className="container mx-auto px-6"
+                data-aos="fade-up" // AOS animation for scrolling effect
+            >
+                {/* Title */}
+                <h2
+                    className="text-5xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-500"
+                >
+                    How Does NeuralLearn Compare?
                 </h2>
+
+                {/* Comparison Table */}
                 <div className="overflow-x-auto">
-                    <table className="table-auto w-full text-left border-collapse border border-gray-700">
+                    <table className="table-auto w-full border-collapse border border-gray-700 shadow-xl rounded-lg">
                         <thead>
-                            <tr className="bg-gray-800">
-                                <th className="p-4 border border-gray-700 text-center">Features</th>
-                                <th className="p-4 border border-gray-700 text-center">NeuralLink</th>
-                                <th className="p-4 border border-gray-700 text-center">Other Solutions</th>
+                            <tr className="bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 text-white">
+                                <th className="p-6 border border-gray-700 text-center text-xl font-bold">
+                                    Features
+                                </th>
+                                <th className="p-6 border border-gray-700 text-center text-xl font-bold">
+                                    NeuralLearn
+                                </th>
+                                <th className="p-6 border border-gray-700 text-center text-xl font-bold">
+                                    Other Solutions
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Does not train on your data</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Understands anything you are looking at</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Understands anything you have said or heard</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Make custom actions and apps</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Tabs for multiple chats</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Integrated audio transcript recorder</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
-                            <tr className="bg-gray-800 hover:bg-gray-700 transition-colors duration-300">
-                                <td className="p-4 border border-gray-700">Always one click away</td>
-                                <td className="p-4 border border-gray-700 text-center">✅</td>
-                                <td className="p-4 border border-gray-700 text-center">❌</td>
-                            </tr>
+                            {[
+                                {
+                                    feature: "Recommends the best courses across platforms",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature:
+                                        "Personalized recommendations based on user input",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature: "Real-time updates and course availability",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature:
+                                        "Searches across multiple learning platforms",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature:
+                                        "Easy-to-use interface with minimal input required",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature:
+                                        "Provides course details like price, reviews, and duration",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                                {
+                                    feature: "No user data storage or tracking",
+                                    neuralLearn: "✅",
+                                    other: "❌",
+                                },
+                            ].map((row, index) => (
+                                <tr
+                                    key={index}
+                                    className={`${
+                                        index % 2 === 0
+                                            ? "bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800"
+                                            : "bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700"
+                                    } hover:scale-[1.02] hover:bg-gradient-to-r hover:from-blue-600 hover:via-purple-600 hover:to-blue-600 transition-transform duration-500`}
+                                >
+                                    <td className="p-6 border border-gray-700 text-lg">
+                                        {row.feature}
+                                    </td>
+                                    <td className="p-6 border border-gray-700 text-center text-2xl">
+                                        {row.neuralLearn}
+                                    </td>
+                                    <td className="p-6 border border-gray-700 text-center text-2xl">
+                                        {row.other}
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
