@@ -44,10 +44,10 @@ Before you start, make sure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Microsoft-LSA-Nexus-Chapter/Nexus-Chapter-Website
+git clone [https://github.com/aditya-ghosh2992/byteblasters-esummit-2024.git]
 ```
 ```bash
-cd Nexus-Chapter-Website
+cd byteblasters-esummit-2024
 ```
 
 ### Install Dependencies
@@ -61,23 +61,7 @@ cd Nexus-Chapter-Website
  ```
 
  It will open at https:/localhost/3000
- ## Project Structure
-```
-|src/
-    ├── app/                # App Router, entry point for Next.js routes
-       ├── layout.tsx      # Layout component for all pages
-       ├── page.tsx        # Home page component
-       ├── events/page.tsx  # Events section with nestedroutes
-       |___ gallery/page.tsx  # Gallery of all the events
-       |___ members/page.tsx  # Members of the MLSA Nexus chapter
-       └── about/page.tsx         # About section with static content
-       |___ Contact/page.tsx  # Contact Page
-    ├── components/         # Reusable components (Header, Footer, etc.)
-├── public/             # Static files like images and icons
-    ├── images/
-├── styles/             # Global styles and Tailwind configuration
-├── tsconfig.json       # TypeScript configuration
-└── tailwind.config.js  # Tailwind CSS configuration
+
 ```
 ## Tech Stack
 
@@ -107,16 +91,13 @@ cd Nexus-Chapter-Website
 ```
 ### Demo Video Link:
 ```bash
-   Link
-```
-### Prototype Working Video Link:
-```bash
-   Link
+   [https://byte-blasters-e-summit-2024.vercel.app/]
+
 ```
 ### Final Product Link:
 ```bash
-   Link
+   [https://byte-blasters-e-summit-2024.vercel.app/]
 ```
 
-## Wireframes
- here you can paste pic and flowchat
+### Developed by team ByteBlasters
+## Teammate: Aditya Ghosh , Amirul Ali Mallick, Ankan Misra, Suman Jain
